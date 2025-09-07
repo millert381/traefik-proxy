@@ -23,7 +23,7 @@ certificatesResolvers:
   cloudflare:
     acme:
       email: millert381@gmail.com
-      storage: acme.json
+      storage: /acme.json
       caServer: https://acme-v02.api.letsencrypt.org/directory # prod (default)
       # caServer: https://acme-staging-v02.api.letsencrypt.org/directory # staging
       dnsChallenge:

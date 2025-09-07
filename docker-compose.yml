@@ -21,13 +21,13 @@ services:
       - /home/docker/traefik/data/config.yml:/config.yml:ro
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik-http.entrypoints=http"
+      - "traefik.http.routers.traefik-http.entrypoints=web"
       - "traefik.http.routers.traefik-http.rule=Host(`traefik.tmtechnical.com`)"
       - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_DASHBOARD_CREDENTIALS}"
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
       - "traefik.http.routers.traefik-http.middlewares=traefik-https-redirect"
-      - "traefik.http.routers.traefik-https.entrypoints=https"
+      - "traefik.http.routers.traefik-https.entrypoints=websecure"
       - "traefik.http.routers.traefik-https.rule=Host(`traefik.tmtechnical.com`)"
       - "traefik.http.routers.traefik-https.middlewares=traefik-auth"
       - "traefik.http.routers.traefik-https.tls=true"
